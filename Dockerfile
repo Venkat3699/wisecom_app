@@ -20,4 +20,4 @@ RUN chmod +x /usr/local/bin/wisecow.sh
 EXPOSE 4499
 
 # Command to run the application
-CMD ["bash", "/usr/local/bin/wisecow.sh"]
+CMD ["/bin/sh", "/usr/local/bin/wisecow.sh"]
