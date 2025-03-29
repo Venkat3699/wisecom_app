@@ -12,8 +12,8 @@ RUN apt-get update && apt-get install -y \
 
 # Copy the Wisecow script and certificates into the container
 COPY wisecow.sh /usr/local/bin/wisecow.sh
-COPY /home/ubuntu/wisecow.crt /usr/local/bin/wisecow.crt
-COPY /home/ubuntu/wisecow.key /usr/local/bin/wisecow.key
+COPY ../wisecow.crt /usr/local/bin/wisecow.crt
+COPY ../wisecow.key /usr/local/bin/wisecow.key
 
 # Make the script executable
 RUN chmod +x /usr/local/bin/wisecow.sh
