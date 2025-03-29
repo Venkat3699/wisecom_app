@@ -1,20 +1,20 @@
-# Base image
+# Use Alpine as the base image
 FROM alpine:latest
 
-# Install bash
-RUN apk add --no-cache bash
+# Install necessary packages
+RUN apk add --no-cache bash fortune cowsay netcat-openbsd
 
-# Set the working directory
-WORKDIR /app
+# Set the PATH environment variable
+ENV PATH=$PATH:/usr/games
 
-# Copy the shell script
-COPY wisecow.sh .
+# Copy the Wisecow application script
+COPY wisecow.sh /usr/local/bin/wisecow.sh
 
-# Set execute permissions
-RUN chmod +x wisecow.sh
+# Make the script executable
+RUN chmod +x /usr/local/bin/wisecow.sh
 
 # Expose the application port
 EXPOSE 4499
 
-# Start the application
-CMD ["bash", "./wisecow.sh"]
+# Command to run the application
+CMD ["bash", "/usr/local/bin/wisecow.sh"]
