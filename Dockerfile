@@ -2,7 +2,7 @@
 FROM alpine:latest
 
 # Install necessary packages
-RUN apk add --no-cache bash fortune netcat-openbsd coreutils
+RUN apk add --no-cache bash fortune cowsay netcat-openbsd coreutils
 
 # Set the PATH environment variable
 ENV PATH=$PATH:/usr/games
