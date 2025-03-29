@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 
 # Install necessary packages
 RUN apt-get update && \
-    apt-get install -y fortune-mod cowsay netcat-openbsd && \
+    apt-get install -y bash fortune-mod cowsay netcat-openbsd && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
