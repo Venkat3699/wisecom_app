@@ -2,7 +2,7 @@
 FROM alpine:latest
 
 # Install necessary packages
-RUN apk add --no-cache sh fortune netcat-openbsd
+RUN apk add --no-cache fortune netcat-openbsd
 
 # Set the PATH environment variable
 ENV PATH=$PATH:/usr/games
@@ -16,5 +16,5 @@ RUN chmod +x /usr/local/bin/wisecow.sh
 # Expose the application port
 EXPOSE 4499
 
-# Command to run the application using sh
+# Command to run the application using sh (default shell)
 CMD ["sh", "/usr/local/bin/wisecow.sh"]
