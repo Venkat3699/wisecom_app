@@ -10,14 +10,14 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /app
 
-# Copy the script
+# Copy script into container
 COPY wisecow.sh /app/wisecow.sh
 
-# Make the script executable
+# Ensure script has execution permissions
 RUN chmod +x /app/wisecow.sh
 
 # Expose the service port
 EXPOSE 4499
 
 # Run the script
-CMD ["/app/wisecow.sh"]
+CMD ["/bin/bash", "/app/wisecow.sh"]
