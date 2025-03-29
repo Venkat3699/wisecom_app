@@ -16,5 +16,5 @@ RUN chmod +x /usr/local/bin/wisecow.sh
 # Expose the application port
 EXPOSE 4499
 
-
-CMD ["/usr/bin/bash", "/usr/local/bin/wisecow.sh"]
+# Use the correct path for bash
+CMD ["/bin/bash", "/usr/local/bin/wisecow.sh"]
