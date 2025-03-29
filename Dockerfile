@@ -1,8 +1,9 @@
 # Use Alpine as the base image
 FROM alpine:latest
 
-# Install necessary packages
-RUN apk add --no-cache bash fortune cowsay netcat-openbsd coreutils
+# Enable community repository and install necessary packages
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/v3.21/community" >> /etc/apk/repositories && \
+    apk add --no-cache bash fortune cowsay netcat-openbsd coreutils
 
 # Set the PATH environment variable
 ENV PATH=$PATH:/usr/games
