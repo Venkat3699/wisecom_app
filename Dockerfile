@@ -2,7 +2,7 @@ FROM debian:latest
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
-    fortune \
+    fortune-mod \
     cowsay \
     netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
@@ -10,10 +10,10 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /app
 
-# Copy script into container
+# Copy the script into the container
 COPY wisecow.sh /app/wisecow.sh
 
-# Ensure script has execution permissions
+# Ensure the script has execution permissions
 RUN chmod +x /app/wisecow.sh
 
 # Expose the service port
