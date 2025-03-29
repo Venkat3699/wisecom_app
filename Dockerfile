@@ -17,4 +17,4 @@ RUN chmod +x /usr/local/bin/wisecow.sh
 EXPOSE 4499
 
 
-CMD ["bash", "/usr/local/bin/wisecow.sh"]
+CMD ["/usr/bin/bash", "/usr/local/bin/wisecow.sh"]
