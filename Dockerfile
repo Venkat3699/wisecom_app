@@ -1,11 +1,19 @@
-# Using an official lightweight image
-FROM alpine:latest
+# Use an official Debian image
+FROM debian:latest
 
 # Install necessary packages
-RUN apk add --no-cache bash nc fortune cowsay openssl
+RUN apt-get update && apt-get install -y \
+    bash \
+    netcat \
+    fortune \
+    cowsay \
+    openssl \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy the script into the container
+# Copy the Wisecow script and certificates into the container
 COPY wisecow.sh /usr/local/bin/wisecow.sh
+COPY wisecow.crt /usr/local/bin/wisecow.crt
+COPY wisecow.key /usr/local/bin/wisecow.key
 
 # Make the script executable
 RUN chmod +x /usr/local/bin/wisecow.sh
