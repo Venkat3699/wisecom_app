@@ -31,6 +31,7 @@ jobs:
     
     - name: Run the Docker container
       run: |
+        docker rm $(docker ps -aq)
         docker run -d -p 4499:4499 --name wisecowapp ${{ secrets.DOCKER_USERNAME }}/wisecowapp:${{ github.run_number }}
   
   deploy_to_kubernetes:
