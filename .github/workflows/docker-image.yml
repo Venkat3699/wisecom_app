@@ -31,7 +31,8 @@ jobs:
     
     - name: Run the Docker container
       run: |
-        docker ps -aq | xargs -r docker rm  
+        docker ps -aq | xargs -r docker stop  
+        docker ps -aq | xargs -r docker rm -f 
         docker run -d -p 4499:4499 --name wisecowapp ${{ secrets.DOCKER_USERNAME }}/wisecowapp:${{ github.run_number }}
   
   deploy_to_kubernetes:
@@ -45,7 +46,7 @@ jobs:
         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
         unzip -o awscliv2.zip  
         sudo ./aws/install --update
-        
+
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
