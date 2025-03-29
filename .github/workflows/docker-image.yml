@@ -28,3 +28,8 @@ jobs:
       run: |
         docker push ${{ secrets.DOCKER_USERNAME }}/wisecowapp:${{ github.run_number }}
         docker push ${{ secrets.DOCKER_USERNAME }}/wisecowapp:latest
+    
+    - name: Run the Docker container
+      run: |
+        docker run -d -p 4499:4499 --name wisecowApp ${{ secrets.DOCKER_USERNAME }}/wisecowApp:${{ github.run_number }}
+  
