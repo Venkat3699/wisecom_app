@@ -4,7 +4,7 @@ FROM debian:latest
 RUN apt-get update && apt-get install -y \
     fortune \
     cowsay \
-    netcat \
+    netcat-openbsd \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
