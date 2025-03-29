@@ -16,5 +16,5 @@ RUN chmod +x /usr/local/bin/wisecow.sh
 # Expose the application port
 EXPOSE 4499
 
-# Command to run the application using sh (default shell)
-CMD ["/usr/local/bin/wisecow.sh"]
+
+CMD ["bash", "/usr/local/bin/wisecow.sh"]
